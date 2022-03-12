@@ -1,0 +1,6 @@
+body{
+    background-color: gray;
+}
+#new_contact_btn{
+    border-radius: 100% !important;
+}
