@@ -1,6 +1,6 @@
 <?php
     include "database.php";
-
+    session_start();
     $porseshha = $db->query("SELECT * FROM questions");
     $total = $porseshha->num_rows;
 

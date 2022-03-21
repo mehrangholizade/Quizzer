@@ -8,17 +8,19 @@
 
     $db->query("INSERT INTO questions(text) VALUES('$porsesh')");
 
-    $q_id = $_SESSION["question_number"] + 1;
+    $question_id = $_SESSION["question_number"] + 1;
     $cnt = 1;
     $temp = 0;
-    foreach($pasokhha as $pasokh) :
-        if($cnt == $is_true)
+    foreach($pasokhha as $pasokh){
+        if($cnt == $is_true){
             $temp = 1;
-        if($pasokh != "")
-            $db->query("INSERT INTO answers(text, is_true, question_id) VALUES('$pasokh', '$temp', '$q_id')");
-        $cnt++;
-        $temp = 0;
-    endforeach;
+        }
+        elseif ($pasokh != "") {
+            $db->query("INSERT INTO answers(text, is_true, question_id) VALUES('$pasokh', '$temp', '$question_id')");
+            $cnt++;
+            $temp = 0;
+        }
+    }
+        header("Location: index.php");
 
-    header("Location: admin.php");
 ?>
